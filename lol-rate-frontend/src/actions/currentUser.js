@@ -62,6 +62,7 @@ export const getCurrentUser = () => {
         if (user.error) {
           alert(user.error)
         } else {
+          console.log("user:", user)
           dispatch(setCurrentUser(user))
         }
       }
