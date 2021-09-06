@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { getChampions } from '../actions/champions';
 import { connect } from 'react-redux';
+import ChampionCard from '../components/ChampionCard';
+import { Card } from 'semantic-ui-react';
 
 class Champions extends Component {
 
@@ -12,8 +14,11 @@ class Champions extends Component {
   render() {
 
     return (
-      <div>Champions</div>
-
+      <div className="Champions">
+        <Card.Group itemsPerRow={3}>
+          {this.props.champions.map((champion, id) => <ChampionCard key={id} champion={champion} />)}
+        </Card.Group>
+      </div>
     )
   }
 

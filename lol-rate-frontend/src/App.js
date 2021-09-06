@@ -5,8 +5,8 @@ import Logout from "./components/Logout"
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
 import NavBar from './components/NavBar'
-import MainContainer from './components/MainContainer';
-import ToysContainer from './components/Champions';
+import MainContainer from './containers/MainContainer';
+import Champions from './container/Champions';
 
 class App extends React.Component {
 
@@ -21,7 +21,7 @@ class App extends React.Component {
       <div className="App">
         <NavBar />
         <MainContainer />
-        <ChampionsContainer />
+        <Champions />
       </div>
     );
   }
