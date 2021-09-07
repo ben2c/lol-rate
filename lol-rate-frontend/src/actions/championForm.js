@@ -4,3 +4,10 @@ export const updateChampionFormData = championFormData => {
     championFormData
   }
 }
+
+export const resetChampionForm = () => {
+  return {
+    type: "RESET_CHAMPION_FORM",
+
+  }
+}

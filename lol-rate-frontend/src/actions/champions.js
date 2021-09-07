@@ -1,3 +1,5 @@
+import { resetChampionForm } from "./championForm"
+
 export const setChampions = champions => {
   console.log("setChampions=", champions)
   return {
@@ -51,6 +53,7 @@ export const createChampion = (champion) => {
       .then(r => r.json())
       .then(champion => {
         dispatch(addChampion(champion))
+        dispatch(resetChampionForm())
       })
 
   }

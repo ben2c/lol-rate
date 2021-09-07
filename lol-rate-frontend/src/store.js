@@ -15,7 +15,7 @@ const reducer = combineReducers({
   currentUser,
   loginForm,
   champions,
-  championFormData
+  championFormData,
 });
 
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
