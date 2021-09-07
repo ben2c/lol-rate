@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Champion.css';
-import { Card, Icon, Image, Divider } from 'semantic-ui-react';
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 
 class ChampionCard extends Component {
@@ -13,8 +13,13 @@ class ChampionCard extends Component {
 
         <Image className="ChampionImage" src={champion.url} alt={champion.name} />
           <Card.Content>
+            <Image className="ChampionImage" src={champion.url} alt={champion.name} />
             <Card.Header>{champion.name}</Card.Header>
             <Card.Lane>{champion.lane}</Card.Lane>
+          </Card.Content>
+
+          <Card.Content extra>
+            <Icon name='user' /> {champion.users ? champion.users.length : 0}
           </Card.Content>
 
       </div>

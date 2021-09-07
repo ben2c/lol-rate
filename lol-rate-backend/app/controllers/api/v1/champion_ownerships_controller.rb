@@ -48,6 +48,6 @@ class Api::V1::ChampionOwnershipsController < ApplicationController
 
   # Only allow a trusted user through.
   def champion_params
-    params.require(:champion).permit(:name, :description, :url)
+    params.require(:champion).permit(:name, :lane, :url)
   end
 end
