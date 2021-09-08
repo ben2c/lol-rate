@@ -7,7 +7,8 @@ import { getCurrentUser } from './actions/currentUser';
 import NavBar from './components/NavBar'
 import MainContainer from './containers/MainContainer';
 import Champions from './container/Champions';
-import ChampionForm from './components/ChampionForm'
+import ChampionForm from './components/ChampionForm';
+import Likes from './containers/Likes';
 
 class App extends React.Component {
 
@@ -24,6 +25,7 @@ class App extends React.Component {
         <MainContainer />
         <Champions />
         <ChampionForm />
+        <Likes />
       </div>
     );
   }
