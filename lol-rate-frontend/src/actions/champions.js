@@ -1,4 +1,5 @@
 import { resetChampionForm } from "./championForm"
+import { setChampionOwnership } from "./currentUser"
 
 export const setChampions = champions => {
   console.log("setChampions=", champions)
@@ -55,6 +56,28 @@ export const createChampion = (champion) => {
         dispatch(addChampion(champion))
         dispatch(resetChampionForm())
       })
+
+  }
+}
+
+export const claimChampion = (champion, user) => {
+  const newData = {
+    user_id: user.id,
+    champion_id: champion.id
+  }
+  console.log("newData", newData)
+
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/champion_ownerships/`,
+      {
+        credentials: "include",
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newData)
+      })
+
+      .then(r => r.json())
+      .then(dispatch(setChampionOwnership(champion, user)))
 
   }
 }

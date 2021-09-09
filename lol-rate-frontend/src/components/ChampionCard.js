@@ -1,46 +1,40 @@
 import React, { Component } from 'react';
 import './Champion.css';
 import { Card, Icon, Image } from 'semantic-ui-react';
-
+import { claimChampion } from '../actions/champions';
+import { connect } from 'react-redux';
 
 class ChampionCard extends Component {
+
   render() {
-    const { champion } = this.props;
-    console.log("ToyCard toy", toy)
-
-    let favs = []
-    if (champion.users) {
-      favs = champion.users.map(user => user.username)
-      console.log("Favorites", favs)
-    }
-
     return (
-    <Card>
-      <div key={champion.id} >
+      <Card>
+        <div key={this.props.champion.id} >
 
-        <Image className="ChampionImage" src={champion.url} alt={champion.name} />
           <Card.Content>
-            <Image className="ChampionImage" src={champion.url} alt={champion.name} />
-            <Card.Header>{champion.name}</Card.Header>
-            <Card.Lane>{champion.lane}</Card.Lane>
+            <Image className="ChampionImage" src={this.props.champion.url} alt={this.props.champion.name} />
+            <Card.Header><strong>{this.props.champion.name}</strong></Card.Header>
+            <Card.Lane>{this.props.champion.lane}</Card.Lane>
           </Card.Content>
 
           <Card.Content extra>
-            <Icon name='user' /> {favs ? favs.length : 0}
+            <Icon name='user' /> {this.props.champion.users !== undefined ? this.props.champion.users.length : 0}
           </Card.Content>
 
-      </div>
-    </Card>
+          <button onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>I HAD THIS!</button>
+
+        </div>
+      </Card>
+
     )
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    champions: state.champions,
+    user: state.currentUser,
+  }
+}
 
-
-
-
-
-
-
-
-export default ChampionCard;
+export default connect(mapStateToProps, { claimChampion })(ChampionCard);

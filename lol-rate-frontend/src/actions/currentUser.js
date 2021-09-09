@@ -7,6 +7,15 @@ export const setCurrentUser = user => {
   }
 }
 
+export const setChampionOwnership = (champion, user) => {
+  return {
+    type: "ADD_CHAMPION_OWNERSHIP_SUCCESS",
+    champion,
+    user
+
+  }
+}
+
 export const clearCurrentUser = () => {
   return {
     type: 'CLEAR_CURRENT_USER'

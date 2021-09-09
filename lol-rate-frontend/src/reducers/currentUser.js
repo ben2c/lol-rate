@@ -10,6 +10,13 @@ export default (state = initialState, action) => {
       return action.user
     case "CLEAR_CURRENT_USER":
       return null
+    case "ADD_CHAMPION_OWNERSHIP_SUCCESS":
+      //state is user
+      console.log("state", state)
+      action.user.champions.push(action.champion)
+      //action.champion, action.user is the champion with new owner
+      console.log("action.user", action.user)
+      return action.user
 
     default:
       return state
