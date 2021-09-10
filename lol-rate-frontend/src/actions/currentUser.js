@@ -1,3 +1,4 @@
+import { clearLoginForm } from '../actions/loginForm';
 //action needs a key of type
 // Synchronous action creators
 export const setCurrentUser = user => {
@@ -54,6 +55,7 @@ export const logout = () => {
       credentials: "include",
       method: "DELETE"
     })
+      .then(clearLoginForm())
   }
 }
 

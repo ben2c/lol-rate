@@ -1,14 +1,12 @@
 import './App.css';
 import React from 'react';
-import Login from './components/Login'
-import Logout from "./components/Logout"
 import { connect } from 'react-redux';
-import { getCurrentUser } from './actions/currentUser';
 import NavBar from './components/NavBar'
-import MainContainer from './containers/MainContainer';
+//import MainContainer from './containers/MainContainer';
 import Champions from './container/Champions';
 import ChampionForm from './components/ChampionForm';
-import Likes from './containers/Likes';
+import Likes from './containers/Like';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -19,23 +17,26 @@ class App extends React.Component {
 
   render() {
     return (
-      //this.props.currentUser ? <Logout /> : <Login />
-      <div className="App">
-        <NavBar />
-        <MainContainer />
-        <Champions />
-        <ChampionForm />
-        <Likes />
-      </div>
+      <Router>
+        <div className="App">
+          <NavBar />
+          <Champions />
+          <ChampionForm />
+          <Likes />
+          <Route path="/champions" component={Champions} />
+          {this.props.user ? <Route path="/Like" component={Like} /> : ""}
+        </div>
+      </Router>
+      
     );
   }
 
 }
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = state => {
   return {
-    currentUser
+    user: state.currentUser,
   }
 }
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(mapStateToProps)(App);
