@@ -5,35 +5,29 @@ import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react';
 
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = (state) => {
   return {
-    currentUser
+    currentUser: state.currentUser
   }
 }
 const NavBar = ({ currentUser }) => {
-
+  let loggedIn = currentUser.username
   return (
-
-
-
 
     <div className="nav">
       <Menu>
-        <div>
-          <h4 className="item">I Had That!</h4>
-        </div>
 
-        {currentUser ? <strong>Welcome, {currentUser.username}</strong> : <strong>Please log in</strong>}
+        {loggedIn ? <strong>Welcome, {currentUser.username}</strong> : <strong>Please log in</strong>}
 
-        {currentUser ? <Logout /> : <Login />}
+        {loggedIn ? <Logout /> : <Login />}
 
 
-        <Link to='/toys' className='item'>
-          View All Toys
+        <Link to='/champions' className='item'>
+          View All Champions
         </Link>
 
-        <Link to='/myStuff' className='item'>
-          View My Toys
+        <Link to='/Like' className='item'>
+          View My Champions
         </Link>
 
 

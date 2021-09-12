@@ -7,6 +7,10 @@ import Champions from './container/Champions';
 import ChampionForm from './components/ChampionForm';
 import Likes from './containers/Like';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Signup from './components/Signup';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import { Divider, Header } from 'semantic-ui-react'
 
 class App extends React.Component {
 
@@ -20,11 +24,19 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <NavBar />
+          <Header as='h1' textAlign='center'>
+            League of Legends Champion Rating
+          </Header>
+          <Route exact path="/" component={Home} />
+          
           <Champions />
           <ChampionForm />
           <Likes />
+          <Route path='/signup' render={()=><Signup />} />
           <Route path="/champions" component={Champions} />
           {this.props.user ? <Route path="/Like" component={Like} /> : ""}
+          <Divider hidden />
+          <Footer />
         </div>
       </Router>
       

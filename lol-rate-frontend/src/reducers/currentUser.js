@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
     case "SET_CURRENT_USER":
       return action.user
     case "CLEAR_CURRENT_USER":
-      return null
+      return initialState
     case "ADD_CHAMPION_OWNERSHIP_SUCCESS":
       //state is user
       let newState = Object.assign({}, state)
