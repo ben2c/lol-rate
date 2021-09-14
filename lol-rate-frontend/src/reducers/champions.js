@@ -7,15 +7,15 @@ export default (state = [], action) => {
       return state.concat(action.champion);
 
     case "ADD_CHAMPION_OWNERSHIP_SUCCESS":
-      //state is champions 
-      state.forEach(t => {
+      let newState = [...state]
+      newState.forEach(t => {
         if (t.id === action.champion.id) {
           t.users.push(action.user)
         }
 
 
       })
-      return state
+      return newState
 
     default:
       return state

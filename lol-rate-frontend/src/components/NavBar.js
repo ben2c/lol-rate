@@ -1,39 +1,32 @@
-import { connect } from 'react-redux';
-import Login from "./Login"
-import Logout from "./Logout"
+import React from 'react';
 import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react';
 
-
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.currentUser
-  }
-}
 const NavBar = ({ currentUser }) => {
-  let loggedIn = currentUser.username
-  return (
 
+  return (
     <div className="nav">
       <Menu>
 
-        {loggedIn ? <strong>Welcome, {currentUser.username}</strong> : <strong>Please log in</strong>}
+        <Link to='/' className='champ'>
+          Home
+        </Link>
 
-        {loggedIn ? <Logout /> : <Login />}
-
-
-        <Link to='/champions' className='item'>
+        <Link to='/champions' className='champ'>
           View All Champions
         </Link>
 
-        <Link to='/Like' className='item'>
-          View My Champions
+        <Link to='/Like' className='champ'>
+          View My Liked Champions
         </Link>
 
+        <Link to='/about' className='champ'>
+          About Us
+        </Link>
 
       </Menu>
     </div>
   )
 }
 
-export default connect(mapStateToProps)(NavBar)
+export default NavBar

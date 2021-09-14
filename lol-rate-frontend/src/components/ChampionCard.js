@@ -20,8 +20,10 @@ class ChampionCard extends Component {
           <Card.Content extra>
             <Icon name='user' /> {this.props.champion.users !== undefined ? this.props.champion.users.length : 0}
           </Card.Content>
-
-          <button onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>I HAD THIS!</button>
+          
+          {this.props.claimed !== "true" ?
+          <button onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>Like this Champion</button> : 
+          <button onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>Unlike this Champion</button> }
 
         </div>
       </Card>

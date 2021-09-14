@@ -17,7 +17,7 @@ class Champions extends Component {
       <div className="Champions">
       <strong>All Champions</strong>
         <Card.Group itemsPerRow={3}>
-          {this.props.champions.map((champion, id) => <ChampionCard key={id} champion={champion} />)}
+          {this.props.champions.map((champion, id) => <ChampionCard numUsers={champion.users.length} key={id} champion={champion} />)}
         </Card.Group>
       </div>
     )

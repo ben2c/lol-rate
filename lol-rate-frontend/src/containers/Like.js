@@ -6,7 +6,7 @@ import { Card } from 'semantic-ui-react';
 class Likes extends Component {
 
   render() {
-    let filtered = allChampions.filter(champion => myChampions.map(t => t.id).includes(champion.id))
+    let newArray = this.props.champions.filter(champion => this.props.user.champions.map(t => t.id).includes(champion.id))
 
 
     return (
@@ -15,7 +15,7 @@ class Likes extends Component {
 
         <strong>{this.props.user.username}'s Favorite Champions</strong>
         <Card.Group itemsPerRow={3}>
-          {filtered.map((champion, id) => <ChampionCard key={id} champion={champion} />)}
+          {newArray.map((champion, id) => <ChampionCard numUsers={champion.users.length} claimed={"true"} key={id} champion={champion} />)}
         </Card.Group>
       </div>
     )
