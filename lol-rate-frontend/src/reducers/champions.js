@@ -1,4 +1,12 @@
-export default (state = [], action) => {
+const initialState = [
+  {
+    name: "",
+    lane: "",
+    users: []
+  }
+]
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case "GET_CHAMPIONS_SUCCESS":
       return action.champions

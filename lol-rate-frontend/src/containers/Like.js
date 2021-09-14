@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ChampionCard from '../components/ChampionCard';
 import { Card } from 'semantic-ui-react';
+import { getMyChampions } from '../actions/currentUser';
 
 class Like extends Component {
+  componentDidMount() {
+    this.props.getMyChampions(this.props.user);
+  }
 
   render() {
     let newArray = this.props.champions.filter(champion => this.props.user.champions.map(t => t.id).includes(champion.id))
@@ -32,4 +36,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(Like);
+export default connect(mapStateToProps, { getMyChampions })(Like);

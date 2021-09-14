@@ -9,10 +9,9 @@ export const setCurrentUser = user => {
   }
 }
 
-export const setChampionOwnership = (champion, user) => {
+export const setMyChampions = (user) => {
   return {
-    type: "ADD_CHAMPION_OWNERSHIP_SUCCESS",
-    champion,
+    type: "GET_MY_CHAMPION_SUCCESS",
     user
 
   }
@@ -76,6 +75,30 @@ export const getCurrentUser = () => {
         } else {
           console.log("user:", user)
           dispatch(setCurrentUser(user))
+        }
+      }
+
+
+      )
+  }
+}
+
+export const getMyChampions = (user) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/users/${user.id}`,
+      {
+        credentials: "include",
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      })
+      .then(r => r.json())
+      .then(u => {
+        console.log("user", u)
+        if (u.error) {
+          alert(u.error)
+        } else {
+
+          dispatch(setMyChampions(u))
         }
       }
 

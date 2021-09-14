@@ -3,6 +3,7 @@ import './Champion.css';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import { claimChampion } from '../actions/champions';
 import { connect } from 'react-redux';
+import { claimChampion, unclaimChampion } from '../actions/championOwnerships';
 
 class ChampionCard extends Component {
 
@@ -23,8 +24,7 @@ class ChampionCard extends Component {
           
           {this.props.claimed !== "true" ?
           <button onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>Like this Champion</button> : 
-          <button onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>Unlike this Champion</button> }
-
+          <button onClick={() => { this.props.unclaimChampion(this.props.championOwnerships, this.props.champion, this.props.user) }}>Unlike this Champion</button>}
         </div>
       </Card>
 
@@ -36,7 +36,8 @@ const mapStateToProps = state => {
   return {
     champions: state.champions,
     user: state.currentUser,
+    championOwnerships: state.championOwnerships
   }
 }
 
-export default connect(mapStateToProps, { claimChampion })(ChampionCard);
+export default connect(mapStateToProps, { claimChampion, unclaimChampion })(ChampionCard);
