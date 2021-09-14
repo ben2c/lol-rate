@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ChampionCard from '../components/ChampionCard';
 import { Card } from 'semantic-ui-react';
 
-class Likes extends Component {
+class Like extends Component {
 
   render() {
     let newArray = this.props.champions.filter(champion => this.props.user.champions.map(t => t.id).includes(champion.id))
@@ -11,7 +11,7 @@ class Likes extends Component {
 
     return (
 
-      <div className="Likes">
+      <div className="Like">
 
         <strong>{this.props.user.username}'s Favorite Champions</strong>
         <Card.Group itemsPerRow={3}>

@@ -26,12 +26,9 @@ export const getChampions = () => {
       })
       .then(r => r.json())
       .then(champions => {
-        console.log("champions", champions)
         if (champions.error) {
           alert(champions.error)
-        } else {
-          dispatch(setChampions(champions))
-        }
+        } 
       }
 
       )

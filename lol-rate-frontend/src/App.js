@@ -2,14 +2,12 @@ import './App.css';
 import React from 'react';
 import { connect } from 'react-redux';
 import NavBar from './components/NavBar'
-//import MainContainer from './containers/MainContainer';
-import Champions from './container/Champions';
+import Champions from './containers/Champions';
 import ChampionForm from './components/ChampionForm';
-import Likes from './containers/Like';
+import Like from './containers/Like';
 import About from './components/About';
 import Login from "./components/Login"
 import Logout from "./components/Logout"
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -19,7 +17,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.getCurrentUser()
+    //this.props.getAllChampions()
 
   }
 
@@ -41,7 +39,7 @@ class App extends React.Component {
             {loggedIn ? <Route path="/signup" component={Signup} /> : ""}
             <Champions />
             <ChampionForm />
-            <Likes />
+            <Like />
             <Route path='/signup' render={()=><Signup />} />
             <Route path="/champions" component={Champions} />
             {loggedIn ? <Route path="/Like" component={Like} /> : ""}
