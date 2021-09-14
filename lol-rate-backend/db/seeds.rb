@@ -1,41 +1,28 @@
-User.where(username: "Barbara").first_or_create(username: "Barbara", email:"barbara@test.com", password:"password")
-User.where(username: "Eric").first_or_create(username: "Eric", email:"eric@test.com", password:"password")
-User.where(username: "Drew").first_or_create(username: "Drew", email:"drew@test.com", password:"password")
+User.where(username: "Ben").first_or_create(username: "ben", email:"ben@wow.com", password:"ben")
+User.where(username: "Vonnie").first_or_create(username: "vonnie", email:"vonnie@wow.com", password:"vonnie")
+User.where(username: "David").first_or_create(username: "david", email:"david@wow.com", password:"david")
 
-Toy.where(name: "Rubik's Cube").first_or_create(name: "Rubik's Cube", 
-    description: "3D combination puzzle", 
-    url: 'https://www.toyhalloffame.org/sites/www.toyhalloffame.org/files/toys/square/rubiks-cube.gif')
+Champion.where(name: "Ahri").first_or_create(name: "Ahri", 
+    lane: "Middle", 
+    url: 'https://i.imgur.com/hYVCQG8.png')
 
-Toy.where(name: "My Little Pony").first_or_create(name: "My Little Pony", 
-    description: "Ponies with colorful hair", 
-    url: "http://mylittlewiki.org/w/images/5/59/Rainbowdash1.jpg")
+Champion.where(name: "Akshan").first_or_create(name: "Akshan", 
+    lane: "Bottom", 
+    url: "https://i.imgur.com/vxI9S6b.png")
 
-Toy.where(name: "Speak & Spell").first_or_create(name: "Speak & Spell", 
-    description: "Electronic toy by T.I. to teach spelling", 
-    url: "http://www.retroland.com/wp-content/uploads/2011/12/Speak-and-Spell.jpg")
+Champion.where(name: "Alistar").first_or_create(name: "Alistar", 
+    lane: "Support", 
+    url: "https://i.imgur.com/K2mIk2d.png")
 
-Toy.where(name: "Rock 'Em Sock 'Em Robots").first_or_create(name: "Rock 'Em Sock 'Em Robots", 
-    description: "Red and blue boxing robots", 
-    url: "http://www.retroland.com/wp-content/uploads/2012/02/Rock%E2%80%99em-Sock%E2%80%99em-Robots.jpg")
-
-Toy.where(name: "Cabbage Patch Kid").first_or_create(name: "Cabbage Patch Kid", 
-    description: "Baby dolls born in a cabbage patch who needed to be adopted", 
-    url: "http://www.retroland.com/wp-content/uploads/2012/06/Cabbage-Patch-Kids.jpg")
-
-Toy.where(name: "Commodore VIC-20").first_or_create(name: "Commodore VIC-20", 
-    description: "8-bit computer", 
-    url: "http://oldcomputers.net/pics/vic20.jpg")
-
-Toy.where(name: "LEGO").first_or_create(name: "LEGO", 
-    description: "Building blocks that are painful to step on", 
-    url: "https://www.toyhalloffame.org/sites/www.toyhalloffame.org/files/toys/square/lego_0.png")
+Champion.where(name: "Camille").first_or_create(name: "Camille", 
+    lane: "Top", 
+    url: "https://i.imgur.com/xzERedX.png")
 
 
-
-ToyOwnership.where(user_id: 1, toy_id: 1).first_or_create(user_id: 1, toy_id: 1)
-ToyOwnership.where(user_id: 1, toy_id: 2).first_or_create(user_id: 1, toy_id: 2)
-ToyOwnership.where(user_id: 2, toy_id: 4).first_or_create(user_id: 2, toy_id: 4)
-ToyOwnership.where(user_id: 2, toy_id: 1).first_or_create(user_id: 2, toy_id: 1)
-ToyOwnership.where(user_id: 3, toy_id: 1).first_or_create(user_id: 3, toy_id: 1)
+ChampionOwnership.where(user_id: 1, champion_id: 1).first_or_create(user_id: 1, champion_id: 1)
+ChampionOwnership.where(user_id: 1, champion_id: 2).first_or_create(user_id: 1, champion_id: 2)
+ChampionOwnership.where(user_id: 2, champion_id: 4).first_or_create(user_id: 2, champion_id: 4)
+ChampionOwnership.where(user_id: 2, champion_id: 3).first_or_create(user_id: 2, champion_id: 3)
+ChampionOwnership.where(user_id: 3, champion_id: 1).first_or_create(user_id: 3, champion_id: 1)
 
 
