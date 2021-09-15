@@ -5,9 +5,6 @@ import { Card } from 'semantic-ui-react';
 import { getMyChampions } from '../actions/currentUser';
 
 class Like extends Component {
-  componentDidMount() {
-    this.props.getMyChampions(this.props.user);
-  }
 
   render() {
     let newArray = this.props.champions.filter(champion => this.props.user.champions.map(t => t.id).includes(champion.id))
@@ -19,7 +16,7 @@ class Like extends Component {
 
         <strong>{this.props.user.username}'s Favorite Champions</strong>
         <Card.Group itemsPerRow={3}>
-          {newArray.map((champion, id) => <ChampionCard numUsers={champion.users.length} claimed={"true"} key={id} champion={champion} />)}
+          {newArray.map((champion, id) => <ChampionCard numUsers={champion.users.length} claimed={champion.claimed} key={id} champion={champion} />)}
         </Card.Group>
       </div>
     )
@@ -36,4 +33,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { getMyChampions })(Like);
+export default connect(mapStateToProps)(Like);

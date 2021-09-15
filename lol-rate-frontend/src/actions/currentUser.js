@@ -9,11 +9,11 @@ export const setCurrentUser = user => {
   }
 }
 
-export const setMyChampions = (user) => {
+export const setMyChampions = (user, champions) => {
   return {
     type: "GET_MY_CHAMPION_SUCCESS",
-    user
-
+    user,
+    champions
   }
 }
 
@@ -40,6 +40,7 @@ export const login = credentials => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
+          dispatch(getMyToys(user))
         }
       }
 
@@ -59,30 +60,6 @@ export const logout = () => {
   }
 }
 
-export const getCurrentUser = () => {
-  return dispatch => {
-    return fetch("http://localhost:3000/api/v1/get_current_user",
-      {
-        credentials: "include",
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      })
-      .then(r => r.json())
-      .then(user => {
-        console.log(user)
-        if (user.error) {
-          alert(user.error)
-        } else {
-          console.log("user:", user)
-          dispatch(setCurrentUser(user))
-        }
-      }
-
-
-      )
-  }
-}
-
 export const getMyChampions = (user) => {
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/users/${user.id}`,
@@ -92,13 +69,13 @@ export const getMyChampions = (user) => {
         headers: { "Content-Type": "application/json" },
       })
       .then(r => r.json())
-      .then(u => {
+      .then((u, t) => {
         console.log("user", u)
         if (u.error) {
           alert(u.error)
         } else {
 
-          dispatch(setMyChampions(u))
+          dispatch(setMyChampions(u, t))
         }
       }
 

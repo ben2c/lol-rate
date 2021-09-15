@@ -8,7 +8,7 @@ export default (state = [], action) => {
       return state.concat(action.championOwnership);
 
     case "REMOVE_CHAMPION_OWNERSHIP_SUCCESS":
-      return state.filter(to => to != action.championOwnership);
+      return state.filter(to => to.id != action.championOwnership.id);
 
 
     default:

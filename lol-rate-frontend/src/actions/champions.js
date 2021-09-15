@@ -1,21 +1,20 @@
 import { resetChampionForm } from "./championForm"
-import { setChampionOwnership } from "./currentUser"
+import { getChampionOwnerships } from "./championOwnerships"
 
 export const setChampions = champions => {
-  console.log("setChampions=", champions)
   return {
     type: "GET_CHAMPIONS_SUCCESS",
-    champions
+    champions,
+
   }
 }
 
-export const addChampion = champion => {
+export const addChampion = (champion) => {
   return {
     type: "CREATE_CHAMPION_SUCCESS",
     champion
   }
 }
-
 export const getChampions = () => {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/champions",
@@ -26,32 +25,27 @@ export const getChampions = () => {
       })
       .then(r => r.json())
       .then(champions => {
+        console.log("champions", champions)
         if (champions.error) {
           alert(champions.error)
-        } 
+        } else {
+          //debugger
+          dispatch(setChampions(champions))
+          dispatch(getChampionOwnerships());
+        }
       }
 
       )
   }
 }
-
 export const createChampion = (champion) => {
-
   return dispatch => {
-
     return fetch("http://localhost:3000/api/v1/champions",
       {
         credentials: "include",
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(champion)
-
-      })
-
-      .then(r => r.json())
-      .then(champion => {
-        dispatch(addChampion(champion))
-        dispatch(resetChampionForm())
       })
 
   }

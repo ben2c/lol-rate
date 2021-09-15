@@ -15,7 +15,7 @@ export const setChampionOwnership = (championOwnership, user, champion) => {
     type: "ADD_CHAMPION_OWNERSHIP_SUCCESS",
     championOwnership,
     user,
-    champion
+    champion,
 
   }
 }
@@ -25,7 +25,7 @@ export const removeChampionOwnership = (championOwnership, user, champion) => {
     type: "REMOVE_CHAMPION_OWNERSHIP_SUCCESS",
     championOwnership,
     user,
-    champion
+    champion,
 
   }
 }

@@ -7,11 +7,6 @@ import { getChampionOwnerships } from '../actions/championOwnerships';
 
 class Champions extends Component {
 
-  componentDidMount() {
-    this.props.getChampions();
-    this.props.getChampionOwnerships();
-  }
-
   render() {
 
     return (
@@ -30,8 +25,9 @@ class Champions extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    champions: state.champions
+    champions: state.champions,
+    currentUser: state.currentUser
   })
 }
 
-export default connect(mapStateToProps, { getChampions, getChampionOwnerships })(Champions);
+export default connect(mapStateToProps)(Champions);
