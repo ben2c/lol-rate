@@ -1,6 +1,3 @@
-import { getMyChampions } from '../actions/currentUser';
-
-
 // Synchronous action creators
 export const setChampionOwnerships = (championOwnerships) => {
   return {

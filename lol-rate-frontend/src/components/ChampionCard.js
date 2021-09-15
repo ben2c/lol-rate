@@ -23,8 +23,8 @@ class ChampionCard extends Component {
           </Card.Content>
           
           {this.props.champion.claimed !== "true" ?
-          <button className="ui green basic button" onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>Like this Champion</button> :
-          <button className="ui red basic button" onClick={() => { this.props.unclaimChampion(this.props.championOwnerships, this.props.champion, this.props.user) }}>Unlike this Champion</button>}
+          <button className="ui inverted green button" onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>Like this Champion</button> :
+          <button className="ui inverted red button" onClick={() => { this.props.unclaimChampion(this.props.championOwnerships, this.props.champion, this.props.user) }}>Unlike this Champion</button>}
         </div>
       </Card>
 

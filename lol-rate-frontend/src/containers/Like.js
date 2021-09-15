@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ChampionCard from '../components/ChampionCard';
 import { Card } from 'semantic-ui-react';
-import { getMyChampions } from '../actions/currentUser';
 
 class Like extends Component {
 

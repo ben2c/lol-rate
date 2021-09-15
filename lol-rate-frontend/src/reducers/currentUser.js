@@ -28,9 +28,10 @@ export default (state = initialState, action) => {
     case "REMOVE_CHAMPION_OWNERSHIP_SUCCESS":
       let userRemovedChampion = Object.assign({}, state)
       let newList = []
-      userRemovedChampion.champions.map(champion => {
+      userRemovedChampion.champions.forEach(champion => {
         if (champion.id !== action.champion.id) {
           newList.push(champion)
+          return champion
         } else {
           champion.claimed = "false"
         }
