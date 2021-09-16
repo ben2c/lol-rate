@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateChampionFormData } from '../actions/championForm';
 import { createChampion } from '../actions/champions';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Divider } from 'semantic-ui-react';
 
 
 
@@ -36,6 +36,7 @@ class ChampionForm extends Component {
     const { name, lane, url } = this.props.championFormData;
     return (
       <div>
+      <Divider />
         <Form onSubmit={this.handleonSubmit}>
           <Form.Group widths='equal'>
             <Form.Input

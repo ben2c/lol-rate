@@ -24,10 +24,12 @@ const Signup = ({ signupFormData, updateSignupForm, signup }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
-      <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />
-      <input placeholder="email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />
-      <input type="submit" value="Sign Up" />
+      <div className='ui input'>
+        <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
+        <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />
+        <input placeholder="email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />
+        <input className='ui primary basic button' type="submit" value="Sign Up" />
+      </div>
     </form>
   )
 }
