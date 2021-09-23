@@ -19,12 +19,12 @@ class ChampionCard extends Component {
           </Card.Content>
 
           <Card.Content extra>
-            <Icon name='user' /> {this.props.champion.users !== undefined ? this.props.champion.users.length : 0}
+            <Icon name='purple user' /> {this.props.champion.users !== undefined ? this.props.champion.users.length : 0}
           </Card.Content>
           
           {this.props.champion.claimed !== "true" ?
-          <button className="ui inverted green button" onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}>Like this Champion</button> :
-          <button className="ui inverted red button" onClick={() => { this.props.unclaimChampion(this.props.championOwnerships, this.props.champion, this.props.user) }}>Unlike this Champion</button>}
+          <div className="ui inverted green button" onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}><Icon name='green plus'/>Like this Champion</div> :
+          <div className="ui inverted red button" onClick={() => { this.props.unclaimChampion(this.props.championOwnerships, this.props.champion, this.props.user) }}><Icon name='red minus'/>Unlike this Champion</div>}
         </div>
       </Card>
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ChampionCard from '../components/ChampionCard';
-import { Card } from 'semantic-ui-react';
+import { Card, Divider } from 'semantic-ui-react';
 
 class Like extends Component {
 
@@ -12,8 +12,9 @@ class Like extends Component {
     return (
 
       <div className="Like">
-
-        <strong>{this.props.user.username}'s Favorite Champions</strong>
+        <Divider hidden />
+        {this.props.user.username ? <strong>{this.props.user.username}'s Champions</strong> : <strong>Log in or sign up</strong>}
+        <Divider hidden />
         <Card.Group itemsPerRow={3}>
           {newArray.map((champion, id) => <ChampionCard numUsers={champion.users.length} claimed={champion.claimed} key={id} champion={champion} />)}
         </Card.Group>

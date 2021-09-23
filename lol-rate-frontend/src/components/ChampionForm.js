@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateChampionFormData } from '../actions/championForm';
 import { createChampion } from '../actions/champions';
-import { Form, Button, Divider } from 'semantic-ui-react';
+import { Form, Icon, Divider } from 'semantic-ui-react';
 
 
 
@@ -63,7 +63,7 @@ class ChampionForm extends Component {
 
           </Form.Group>
 
-          <Button color='blue'>Add New Champion</Button>
+          <button className="ui purple button" type="submit" value="Add Champion Out" ><Icon name="gamepad" />Add Champion</button>
         </Form>
 
       </div>

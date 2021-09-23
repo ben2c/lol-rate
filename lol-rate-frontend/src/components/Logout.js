@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../actions/currentUser'
-
-
+import { Icon } from 'semantic-ui-react';
 
 const Logout = ({ logout }) => {
 
   return (
     <form onSubmit={logout}>
 
-      <input className='ui green button' type="submit" value="Log Out" />
+      <button className='ui red button' type="submit" value="Log Out" ><Icon name='sign out' />Log Out </button>
 
     </form>
   )

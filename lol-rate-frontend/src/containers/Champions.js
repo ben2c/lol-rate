@@ -21,9 +21,6 @@ class Champions extends Component {
       </div>
     )
   }
-
-
-
 }
 
 const mapStateToProps = (state) => {

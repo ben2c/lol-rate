@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateLoginForm } from '../actions/loginForm'
 import { login } from '../actions/currentUser'
-
+import { Divider, Icon } from 'semantic-ui-react';
 
 
 const Login = ({ loginFormData, updateLoginForm, login }) => {
@@ -25,16 +25,17 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="ui input">
-        <input placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
-        <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} /><br /><br />
+    <div>
+      <Divider />
+      <form onSubmit={handleSubmit}>
+        <div className="ui input">
+          <input placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
+          <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} /><br /><br />
 
-        <input className="ui blue button" type="submit" value="Log In" />
-      </div>
-
-    </form>
-
+          <button className="ui blue button" type="submit" value="Log In" > <Icon name='sign in' /> Log In </button>
+        </div>
+      </form>
+    </div>
   )
 }
 
