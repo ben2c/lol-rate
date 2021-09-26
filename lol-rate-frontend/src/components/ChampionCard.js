@@ -1,30 +1,40 @@
 import React, { Component } from 'react';
 import './Champion.css';
+import '../App.css';
 import { Card, Icon, Image } from 'semantic-ui-react';
-import { claimChampion } from '../actions/champions';
-import { connect } from 'react-redux';
 import { claimChampion, unclaimChampion } from '../actions/championOwnerships';
+import { connect } from 'react-redux';
 
 class ChampionCard extends Component {
 
   render() {
+
+    let buttonsVisible = 
+    <div>
+      {this.props.champion.claimed !== "true" ?
+        <div className="claim-button" onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}><i className="plus icon plus-class" />Like</div> :
+        <div className="unclaim-button" onClick={() => { this.props.unclaimChampion(this.props.championOwnerships, this.props.champion, this.props.user) }}><i className="minus icon minus-class" />Unlike</div>
+      }   
+    </div>
+
     return (
+
       <Card>
         <div key={this.props.champion.id} >
 
           <Card.Content>
             <Image className="ChampionImage" src={this.props.champion.url} alt={this.props.champion.name} />
             <Card.Header><strong>{this.props.champion.name}</strong></Card.Header>
-            <Card.Lane>{this.props.champion.lane}</Card.Lane>
+            <Card.Description>{this.props.champion.description}</Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <i className='users icon user-class' /> {this.props.numUsers !== undefined ? this.props.champion.users.length : 0}
           </Card.Content>
 
-          <Card.Content extra>
-            <Icon name='purple user' /> {this.props.champion.users !== undefined ? this.props.champion.users.length : 0}
-          </Card.Content>
-          
-          {this.props.champion.claimed !== "true" ?
-          <div className="ui inverted green button" onClick={() => { this.props.claimChampion(this.props.champion, this.props.user) }}><Icon name='green plus'/>Like this Champion</div> :
-          <div className="ui inverted red button" onClick={() => { this.props.unclaimChampion(this.props.championOwnerships, this.props.champion, this.props.user) }}><Icon name='red minus'/>Unlike this Champion</div>}
+
+          {this.props.user.username ? buttonsVisible : ""}
+
+
         </div>
       </Card>
 
@@ -39,5 +49,4 @@ const mapStateToProps = state => {
     championOwnerships: state.championOwnerships
   }
 }
-
 export default connect(mapStateToProps, { claimChampion, unclaimChampion })(ChampionCard);

@@ -63,7 +63,7 @@ class ChampionForm extends Component {
 
           </Form.Group>
 
-          <button className="ui purple button" type="submit" value="Add Champion Out" ><Icon name="gamepad" />Add Champion</button>
+          <button className="button button-add" type="submit" value="Add Champion Out" ><Icon name="gamepad" />Add Champion</button>
         </Form>
 
       </div>

@@ -43,8 +43,6 @@ export const login = credentials => {
           dispatch(getMyToys(user))
         }
       }
-
-
       )
   }
 }
