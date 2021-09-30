@@ -40,7 +40,7 @@ export const login = credentials => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
-          dispatch(getMyToys(user))
+          dispatch(getMyChampions(user))
         }
       }
       )

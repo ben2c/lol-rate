@@ -8,7 +8,7 @@ const About = () => {
     <div>
       <Divider />
       <Container>
-        <h2>About Us</h2>
+        <h3>About Us</h3>
       </Container>
     </div>
   )

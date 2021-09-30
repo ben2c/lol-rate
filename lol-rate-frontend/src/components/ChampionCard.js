@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Champion.css';
 import '../App.css';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 import { claimChampion, unclaimChampion } from '../actions/championOwnerships';
 import { connect } from 'react-redux';
 

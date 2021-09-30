@@ -40,9 +40,8 @@
   border-radius: 5px;
   padding: 2px;
   font-family: 'Rajdhani', sans-serif;
-
-
-
+  font-style: bold;
+  font-size: 16px;
 }
 
 .claim-button

@@ -13,7 +13,7 @@ class Like extends Component {
 
       <div className="Like">
         <Divider hidden />
-        {this.props.user.username ? <strong>{this.props.user.username}'s Champions</strong> : <strong>Log in or sign up</strong>}
+        {this.props.user.username ? <h3>{this.props.user.username}'s Champions</h3> : <strong>Log in or sign up</strong>}
         <Divider hidden />
         <Card.Group itemsPerRow={3}>
           {newArray.map((champion, id) => <ChampionCard numUsers={champion.users.length} claimed={champion.claimed} key={id} champion={champion} />)}

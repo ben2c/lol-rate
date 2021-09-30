@@ -12,7 +12,6 @@ import About from './components/About';
 import Login from "./components/Login"
 import Logout from "./components/Logout"
 import { getAllChampions } from './actions/champions';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Divider } from 'semantic-ui-react'
 import history from './history';
@@ -22,11 +21,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.getAllChampions();
-
-
   }
-
-
 
   render() {
 
@@ -48,7 +43,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/champions" component={Champions} />
-              <Route path="/myStuff" component={Like} />
+              <Route path="/Like" component={Like} />
               <Route path="/about" component={About} />
             </Switch>
 
