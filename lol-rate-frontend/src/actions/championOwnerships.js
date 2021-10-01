@@ -22,7 +22,7 @@ export const removeChampionOwnership = (championOwnership, user, champion) => {
     type: "REMOVE_CHAMPION_OWNERSHIP_SUCCESS",
     championOwnership,
     user,
-    champion,
+    champion
 
   }
 }

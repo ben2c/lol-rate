@@ -9,11 +9,10 @@ export const setCurrentUser = user => {
   }
 }
 
-export const setMyChampions = (user, champions) => {
+export const setMyChampions = (user) => {
   return {
     type: "GET_MY_CHAMPION_SUCCESS",
-    user,
-    champions
+    user
   }
 }
 
@@ -35,7 +34,6 @@ export const login = credentials => {
       })
       .then(r => r.json())
       .then(user => {
-        console.log(user)
         if (user.error) {
           alert(user.error)
         } else {
@@ -67,13 +65,13 @@ export const getMyChampions = (user) => {
         headers: { "Content-Type": "application/json" },
       })
       .then(r => r.json())
-      .then((u, t) => {
-        console.log("user", u)
+      .then((u) => {
+
         if (u.error) {
           alert(u.error)
         } else {
 
-          dispatch(setMyChampions(u, t))
+          dispatch(setMyChampions(u))
         }
       }
 

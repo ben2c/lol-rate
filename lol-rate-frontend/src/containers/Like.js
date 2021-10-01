@@ -6,30 +6,30 @@ import { Card, Divider } from 'semantic-ui-react';
 class Like extends Component {
 
   render() {
-    let newArray = this.props.champions.filter(champion => this.props.user.champions.map(t => t.id).includes(champion.id))
-
+    //Destructure to extract data from objects into their own variable- ex: champion instead this.props.champion)
+    const { championsReducer } = this.props;
 
     return (
 
       <div className="Like">
         <Divider hidden />
-        {this.props.user.username ? <h3>{this.props.user.username}'s Champions</h3> : <strong>Log in or sign up</strong>}
+
+        {championsReducer.currentUser.username ? <h3>{championsReducer.currentUser.username}'s Champions</h3> : <strong>Log in or sign up</strong>}
+
         <Divider hidden />
+
         <Card.Group itemsPerRow={3}>
-          {newArray.map((champion, id) => <ChampionCard numUsers={champion.users.length} claimed={champion.claimed} key={id} champion={champion} />)}
+          {championsReducer.userChampions.map((champion, id) => <ChampionCard numUsers={champion.users.length} claimed={champion.claimed} key={id} champion={champion} />)}
+
         </Card.Group>
       </div>
     )
   }
-
-
 }
-
 
 const mapStateToProps = (state) => {
   return ({
-    user: state.currentUser,
-    champions: state.champions
+    championsReducer: state.championsReducer
   })
 }
 

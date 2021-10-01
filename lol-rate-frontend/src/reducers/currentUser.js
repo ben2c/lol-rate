@@ -1,7 +1,7 @@
 const initialState = {
   username: '',
   email: '',
-  champions: []
+  champions: [{ name: '', lane: '', url: '', users: [{}] }]
 }
 
 export default (state = initialState, action) => {
@@ -14,9 +14,8 @@ export default (state = initialState, action) => {
       return initialState
 
     case "GET_MY_CHAMPIONS_SUCCESS":
-      let newStateWithClaim = Object.assign({}, state)
-      newStateWithClaim.champions.map(t => t.claimed = "true")
-      return newStateWithClaim
+      action.user.champions.map(t => t.claimed = "true")
+      return action.user
 
     case "ADD_CHAMPION_OWNERSHIP_SUCCESS":
       //state is user

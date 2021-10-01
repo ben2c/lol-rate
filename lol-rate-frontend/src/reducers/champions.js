@@ -18,13 +18,11 @@ export default (state = initialState, action) => {
     case "GET_MY_CHAMPIONS_SUCCESS":
       let newStateWithClaims = [...state]
       newStateWithClaims.forEach(t => t.claimed = "false")
-      let newChampions = action.user.champions
-      newChampions.forEach(t => t.claimed = "true")
-
-
+      
+      let userChampions = action.user.champions
+      userChampions.forEach(t => t.claimed = "true")
 
       let newA = newStateWithClaims.map(champion => newChampions.find(t => t.id === champion.id) || champion)
-
 
       return newA
 
@@ -34,8 +32,6 @@ export default (state = initialState, action) => {
         if (t.id === action.champion.id) {
           t.users.push(action.user)
         }
-
-
       })
       return newState
 

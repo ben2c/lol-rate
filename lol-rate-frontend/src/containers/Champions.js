@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ChampionCard from '../components/ChampionCard';
 import { Card } from 'semantic-ui-react';
-import Trending from '../components/Stats';
+import Stats from '../components/Stats';
 import { Divider } from 'semantic-ui-react'
 
 class Champions extends Component {
@@ -12,7 +12,7 @@ class Champions extends Component {
     return (
       <div className="Champions">
         <Divider />
-        <Trending numChampions={this.props.champions.length} topThree={sorted.slice(0, 3)} />
+        <Stats numChampions={this.props.champions.length} topThree={sorted.slice(0, 3)} />
         <strong>All Champions</strong>
         <Divider />
         <Card.Group itemsPerRow={3}>
