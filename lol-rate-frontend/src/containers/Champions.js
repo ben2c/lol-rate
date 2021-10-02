@@ -14,6 +14,7 @@ class Champions extends Component {
         <Divider />
         <Stats numChampions={this.props.champions.length} topThree={sorted.slice(0, 3)} />
         <strong>All Champions</strong>
+        <div>{this.props.loadStatus}</div>
         <Divider />
         <Card.Group itemsPerRow={3}>
           {this.props.champions.map((champion, id) => <ChampionCard claimed={champion.claimed} numUsers={champion.users.length} key={id} champion={champion} />)}
@@ -26,7 +27,7 @@ class Champions extends Component {
 const mapStateToProps = (state) => {
   return ({
     champions: state.champions,
-    currentUser: state.currentUser
+    loadStatus: state.loadStatus
   })
 }
 

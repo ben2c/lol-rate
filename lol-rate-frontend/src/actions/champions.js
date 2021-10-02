@@ -22,7 +22,9 @@ export const addChampion = (champion) => {
     champion
   }
 }
+
 export const getChampions = () => {
+  console.log("c")
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/champions",
       {
@@ -32,18 +34,13 @@ export const getChampions = () => {
       })
       .then(r => r.json())
       .then(champions => {
-        console.log("champions", champions)
-        if (champions.error) {
-          alert(champions.error)
-        } else {
-          //debugger
-          dispatch(setChampions(champions))
-          dispatch(getChampionOwnerships());
-        }
-      }
+        dispatch(setChampions(champions))
+        dispatch(getChampionOwnerships());
+      })
+      .catch(error => dispatch({ action: 'ERROR' }))
 
-      )
   }
+
 }
 
 export const getAllChampions = () => {

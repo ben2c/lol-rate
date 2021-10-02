@@ -28,29 +28,16 @@ export default (state = initialState, action) => {
 
     case "ADD_CHAMPION_OWNERSHIP_SUCCESS":
       let newState = [...state]
-      newState.forEach(t => {
-        if (t.id === action.champion.id) {
-          t.users.push(action.user)
-        }
-      })
+      let newChampion = action.champion
+      newChampion.claimed = "true"
+      newChampion.users.push(action.user)
       return newState
 
     case "REMOVE_CHAMPION_OWNERSHIP_SUCCESS":
-
       let userRemoved = [...state]
-
-      let newList = []
-      let findChampion = userRemoved.find(t => t.id === action.champion.id)
+      let findChampion = action.champion
       findChampion.claimed = "false"
-      findChampion.users.forEach(user => {
-        if (user.id !== action.user.id) {
-          newList.push(user)
-        }
-      })
-
-
-      findChampion.users = newList
-
+      findChampion.users = findChampion.users.filter(u => u.id !== action.user.id)
       return userRemoved
 
     default:

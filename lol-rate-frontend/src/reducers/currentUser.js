@@ -14,30 +14,18 @@ export default (state = initialState, action) => {
       return initialState
 
     case "GET_MY_CHAMPIONS_SUCCESS":
-      action.user.champions.map(t => t.claimed = "true")
-      return action.user
+      return {...state, champions: action.user.champions.map(t => {
+          t.claimed = "true"
+        return t
+      })
+      }
 
     case "ADD_CHAMPION_OWNERSHIP_SUCCESS":
-      //state is user
-      let newState = Object.assign({}, state)
-      newState.champions.push(action.champion)
-      //action.champion, action.user is the champion with new owner
-      return newState
+      return { ...state, champions: state.champions.concat(action.champion) }
 
     case "REMOVE_CHAMPION_OWNERSHIP_SUCCESS":
-      let userRemovedChampion = Object.assign({}, state)
-      let newList = []
-      userRemovedChampion.champions.forEach(champion => {
-        if (champion.id !== action.champion.id) {
-          newList.push(champion)
-          return champion
-        } else {
-          champion.claimed = "false"
-        }
-      })
-      userRemovedChampion.champions = newList
+      return { ...state, champions: action.user.champions.filter(t => t.id !== action.champion.id) }
 
-      return userRemovedChampion
     default:
       return state
   }

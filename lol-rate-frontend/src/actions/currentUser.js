@@ -1,18 +1,22 @@
 import { clearLoginForm } from '../actions/loginForm';
 import { resetSignupForm } from '../actions/signupForm';
+import store from '../store'
+
 //action needs a key of type
 // Synchronous action creators
-export const setCurrentUser = user => {
+export const setCurrentUser = (user, champions) => {
   return {
     type: 'SET_CURRENT_USER',
-    user
+    user,
+    champions
   }
 }
 
-export const setMyChampions = (user) => {
+export const setMyChampions = (user, champions) => {
   return {
     type: "GET_MY_CHAMPION_SUCCESS",
-    user
+    user,
+    champions
   }
 }
 
@@ -52,7 +56,8 @@ export const logout = () => {
       credentials: "include",
       method: "DELETE"
     })
-      .then(dispatch(clearLoginForm()))
+      .then(r => r.json())
+      .then(() => { dispatch(clearLoginForm()) })
   }
 }
 
@@ -71,7 +76,8 @@ export const getMyChampions = (user) => {
           alert(u.error)
         } else {
 
-          dispatch(setMyChampions(u))
+          let t = store.getState().champions
+          dispatch(setMyChampions(u, t));
         }
       }
 
