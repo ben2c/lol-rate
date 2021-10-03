@@ -8,11 +8,14 @@ import { connect } from 'react-redux';
 class ChampionCard extends Component {
 
   constructor(props) {
+    //super calls the constructor of parent class component
     super(props);
+    //set initial state in constructor since it runs first
     this.state = { liked: false }
 
   }
 
+  //alter state when the like button is clicked using setState
   clickHandler = () => {
     this.setState(prevState => ({
       liked: !prevState.liked
