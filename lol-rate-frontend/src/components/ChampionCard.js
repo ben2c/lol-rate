@@ -17,20 +17,20 @@ class ChampionCard extends Component {
 
   //alter state when the like button is clicked using setState
   clickHandler = () => {
-    this.setState(prevState => ({
-      liked: !prevState.liked
+    this.setState(state => ({
+      liked: !state.liked
     }));
   }
 
   render() {
 
-    const { champion, user, numUsers, championOwnerships, claimChampion, unclaimChampion } = this.props;
+    const { champion, numUsers, claimChampion, unclaimChampion, championsReducer } = this.props;
 
     let buttonsVisible = 
     <div>
       {champion.claimed !== "true" ?
-        <div className="claim-button" onClick={() => { claimChampion(champion, user) }}><i className="plus icon plus-class" />Like</div> :
-        <div className="unclaim-button" onClick={() => { unclaimChampion(championOwnerships, champion, user) }}><i className="minus icon minus-class" />Unlike</div>
+        <div className="claim-button" onClick={() => { claimChampion(champion, championsReducer.currentUser) }}><i className="plus icon plus-class" />Like</div> :
+        <div className="unclaim-button" onClick={() => { unclaimChampion(championsReducer, champion, championsReducer.currentUser) }}><i className="minus icon minus-class" />Unlike</div>
       }   
     </div>
 
@@ -55,7 +55,7 @@ class ChampionCard extends Component {
           </Card.Content>
 
 
-          {user.username ? buttonsVisible : ""}
+          {championsReducer.currentUser.username ? buttonsVisible : ""}
 
 
         </div>
@@ -69,7 +69,8 @@ const mapStateToProps = state => {
   return {
     champions: state.champions,
     user: state.currentUser,
-    championOwnerships: state.championOwnerships
+    championOwnerships: state.championOwnerships,
+    championsReducer: state.championsReducer
   }
 }
 export default connect(mapStateToProps, { claimChampion, unclaimChampion })(ChampionCard);

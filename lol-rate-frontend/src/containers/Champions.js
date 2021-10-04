@@ -5,20 +5,34 @@ import { Card } from 'semantic-ui-react';
 import Stats from '../components/Stats';
 import { Divider } from 'semantic-ui-react'
 
+
 class Champions extends Component {
 
+  state = { newSearch: "" }
+
+  handleInputChange = e => {
+    this.setState({ newSearch: e.target.value })
+  }
+
   render() {
-    let sorted = this.props.champions.sort((a, b) => (a.users.length > b.users.length) ? -1 : 1)
+    //Destructure to extract data from objects into their own variable- ex: champion instead this.props.champion)
+    const { championsReducer } = this.props;
+
+    //copy champions so sort does not mutate
+    let topChampions = [...championsReducer.champions].sort((a, b) => (a.users.length > b.users.length) ? -1 : 1)
+    let championsMatch = championsReducer.champions.filter((champion) => champion.name.toLowerCase().includes(this.state.newSearch.toLowerCase()))
+
     return (
       <div className="Champions">
+        <input placeholder="championName" value={this.state.newSearch} name="championName" type="text" onChange={this.handleInputChange} />
         <Divider />
-        <Stats numChampions={this.props.champions.length} topThree={sorted.slice(0, 3)} />
-        <strong>All Champions</strong>
-        <div>{this.props.loadStatus}</div>
+        <Stats numChampions={championsReducer.champions.length} topThree={topChampions.slice(0, 3)} />
         <Divider />
+
         <Card.Group itemsPerRow={3}>
-          {this.props.champions.map((champion, id) => <ChampionCard claimed={champion.claimed} numUsers={champion.users.length} key={id} champion={champion} />)}
+          {championsMatch.map((champion, id) => <ChampionCard claimed={champion.claimed} numUsers={champion.users.length} key={id} champion={champion} />)}
         </Card.Group>
+
       </div>
     )
   }
@@ -26,8 +40,7 @@ class Champions extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    champions: state.champions,
-    loadStatus: state.loadStatus
+    championsReducer: state.championsReducer
   })
 }
 

@@ -20,6 +20,15 @@ export const setMyChampions = (user, champions) => {
   }
 }
 
+export const markAsClaimed = (user, champions) => {
+  return {
+    type: "MARK_AS_CLAIMED",
+
+    user,
+    champions
+  };
+};
+
 export const clearCurrentUser = () => {
   return {
     type: 'CLEAR_CURRENT_USER'

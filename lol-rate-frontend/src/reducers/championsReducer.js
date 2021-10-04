@@ -89,7 +89,6 @@ export default (state = initialState, action) => {
 
     case "REMOVE_CHAMPION_OWNERSHIP_SUCCESS":
       let updateChampions = [...state.champions]
-      //let updateMyChampions = [...state.userChampions]
 
       updateChampions.forEach(t => {
         if (t.id === action.champion.id) {
