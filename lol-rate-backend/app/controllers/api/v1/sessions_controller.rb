@@ -4,8 +4,8 @@ class Api::V1::SessionsController < ApplicationController
         session[:user_id] = @user.id 
 
         if @user && @user.authenticate(params[:session][:password])
-            render json: @user, include: ['champion.users']
-        else 
+            render json: @user, include: ['champions.users']
+         else 
             render json: {
                 error: "Invalid Credentials"
             }
@@ -13,21 +13,24 @@ class Api::V1::SessionsController < ApplicationController
 
     end 
 
-  def get_current_user
-          if logged_in?
-              render json: current_user 
-          else
-              render json: {
-                  error: "Not logged in"
-              }
-          end
-      end 
 
-  def destroy 
+    def get_current_user
+        if logged_in?
+            render json: current_user 
+        else
+            render json: {
+                error: "Not logged in"
+            }
+        end
+    end 
+
+    def destroy
         session.clear
         render json: {
             notice: "Successfully logged out"
         }
     end 
+
+
 
 end

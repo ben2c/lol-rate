@@ -40,12 +40,6 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
   )
 }
 
-//loginForm state has user credentials
-//{
-//     username: "xxx",
-//     password: "password"
-// }
-
 const mapStateToProps = state => {
   return {
     loginFormData: state.loginForm

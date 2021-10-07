@@ -14,6 +14,4 @@ const Logout = ({ logout }) => {
   )
 }
 
-
-
 export default connect(null, { logout })(Logout)

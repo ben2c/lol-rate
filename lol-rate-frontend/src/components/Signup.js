@@ -4,6 +4,7 @@ import { updateSignupForm } from "../actions/signupForm.js"
 import { signup } from "../actions/currentUser.js"
 import { Divider, Icon } from 'semantic-ui-react';
 
+
 const Signup = ({ signupFormData, updateSignupForm, signup }) => {
 
   const handleUserInfoInputChange = event => {
@@ -26,12 +27,16 @@ const Signup = ({ signupFormData, updateSignupForm, signup }) => {
   return (
     <div>
       <Divider hidden />
+
       <form onSubmit={handleSubmit}>
-        <div className='ui input'>
-          <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
+        <div className="ui input">
+
+          <input placeholder="user name" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
           <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />
-          <input placeholder="email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />
-          <button className='button button-signup' type="submit" value="Sign Up" > <Icon name='user plus' />Sign Up</button>
+          <input placeholder="email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} /> <br /><br />
+
+          <button className="button button-signup" type="submit" value="Sign Up" > <Icon name="user plus" /> Sign up</button>
+
         </div>
       </form>
     </div>

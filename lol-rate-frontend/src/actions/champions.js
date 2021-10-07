@@ -6,7 +6,7 @@ import { getChampionOwnerships } from "./championOwnerships"
 // Actions are dispatched to the store
 // the store invokes reducers 
 // reducers generate new state 
-export const fetchChampionSuccess = champions => {
+export const fetchChampionsSuccess = champions => {
   return {
     type: "GET_ALL_CHAMPIONS_SUCCESS",
     champions
