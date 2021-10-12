@@ -15,6 +15,7 @@ import { getAllChampions } from './actions/champions';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Divider } from 'semantic-ui-react'
 import history from './history';
+import icon from './images/icon.png';
 
 
 class App extends React.Component {
@@ -35,7 +36,7 @@ class App extends React.Component {
           <div className="App">
             <NavBar />
 
-            <h3>League of Legends Rating</h3>
+            <h3>League of Legends Rate</h3>
 
             {loggedIn ? <Logout /> : <div> <Login /> <Signup /> </div>}
             {loggedIn ? <ChampionForm /> : ""}

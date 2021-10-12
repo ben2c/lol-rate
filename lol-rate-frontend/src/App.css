@@ -7,7 +7,7 @@ h3 {
   font-family: 'Rajdhani', sans-serif;
   font-style: bold;
   font-size: 40px;
-  color: #519d90;
+  color: #003688;
 }
 
 .App-logo {
@@ -48,10 +48,9 @@ h3 {
 .NavBar {
   display: flex;
   flex-direction: row;
-  color: red;
 }
 
 div.ui.menu {
-  background-color: #de7e30;
+  background-color: #ffffff;
   font-size: 16px;
 }

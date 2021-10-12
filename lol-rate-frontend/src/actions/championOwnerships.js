@@ -12,7 +12,7 @@ export const setChampionOwnership = (championOwnership, user, champion) => {
     type: "ADD_CHAMPION_OWNERSHIP_SUCCESS",
     championOwnership,
     user,
-    champion,
+    champion
 
   }
 }
@@ -44,7 +44,9 @@ export const getChampionOwnerships = () => {
         if (champion_ownerships.error) {
           alert(champion_ownerships.error)
         } else {
+
           dispatch(setChampionOwnerships(champion_ownerships))
+
         }
       })
   }
@@ -93,6 +95,7 @@ export const unclaimChampion = (to, champion, user) => {
       .then(r => r.text())
       .then(championOwnership => {
         console.log(championOwnership)
+
 
         dispatch(removeChampionOwnership(selectedChampionOwnership, user, champion))
 

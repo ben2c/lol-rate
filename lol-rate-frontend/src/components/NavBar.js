@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react';
 import '../App.css';
+import Icon from '../images/icon.png';
 
 const NavBar = () => {
 
@@ -9,9 +10,7 @@ const NavBar = () => {
     <div className="nav">
       <Menu>
 
-        <Link to='/' className='champ'>
-          Home
-        </Link>
+        <a href='/'><img src={Icon} height='60' width='60' /></a>
 
         <Link to='/champions' className='champ'>
           View All Champions
