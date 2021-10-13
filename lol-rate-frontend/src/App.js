@@ -15,7 +15,6 @@ import { getAllChampions } from './actions/champions';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Divider } from 'semantic-ui-react'
 import history from './history';
-import icon from './images/icon.png';
 
 
 class App extends React.Component {

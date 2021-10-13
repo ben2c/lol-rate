@@ -7,32 +7,36 @@ import { connect } from 'react-redux';
 
 class ChampionCard extends Component {
 
+
   constructor(props) {
-    //super calls the constructor of parent class component
+    //super calls the constructor of parent class Component
     super(props);
+
     //set initial state in constructor since it runs first
     this.state = { liked: false }
 
   }
 
-  //alter state when the like button is clicked using setState
+  //alter state when like button is clicked using setState
   clickHandler = () => {
     this.setState(state => ({
       liked: !state.liked
     }));
   }
 
-  render() {
 
+
+  render() {
+    //Destructure to extract data from objects into their own variable- ex: champion instead this.props.champion)
     const { champion, numUsers, claimChampion, unclaimChampion, championsReducer } = this.props;
 
-    let buttonsVisible = 
-    <div>
-      {champion.claimed !== "true" ?
-        <div className="claim-button" onClick={() => { claimChampion(champion, championsReducer.currentUser) }}><i className="plus icon plus-class" />Like</div> :
-        <div className="unclaim-button" onClick={() => { unclaimChampion(championsReducer, champion, championsReducer.currentUser) }}><i className="minus icon minus-class" />Unlike</div>
-      }   
-    </div>
+    let buttonsVisible =
+      <div>
+        {champion.claimed !== "true" ?
+          <div className="claim-button" onClick={() => { claimChampion(champion, championsReducer.currentUser) }}><i className='plus icon plus-class' />I HAD THIS</div> :
+          <div className="unclaim-button" onClick={() => { unclaimChampion(championsReducer.championOwnerships, champion, championsReducer.currentUser) }}><i className="minus icon minus-class" />UNCLAIM THIS</div>
+        }   </div>
+
 
     return (
 
@@ -43,13 +47,20 @@ class ChampionCard extends Component {
             <Image className="ChampionImage" src={champion.url} alt={champion.name} />
             <Card.Header><strong>{champion.name}</strong></Card.Header>
             <Card.Description>{champion.description}</Card.Description>
+
+
+
             <div>
               {this.state.liked ?
                 <button className="unlike-button" onClick={this.clickHandler}><i className="red heart icon" />Liked</button> :
                 <button className="like-button" onClick={this.clickHandler}><i className="red heart outline icon" />Like</button>
               }
             </div>
+
+
+
           </Card.Content>
+
           <Card.Content extra>
             <i className='users icon user-class' /> {numUsers !== undefined ? champion.users.length : 0}
           </Card.Content>
@@ -65,6 +76,8 @@ class ChampionCard extends Component {
   }
 }
 
+
+
 const mapStateToProps = state => {
   return {
     champions: state.champions,
@@ -73,4 +86,5 @@ const mapStateToProps = state => {
     championsReducer: state.championsReducer
   }
 }
+
 export default connect(mapStateToProps, { claimChampion, unclaimChampion })(ChampionCard);
