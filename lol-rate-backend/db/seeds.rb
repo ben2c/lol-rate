@@ -18,6 +18,24 @@ Champion.where(name: "Camille").first_or_create(name: "Camille",
     lane: "Top", 
     url: "https://i.imgur.com/xzERedX.png")
 
+Champion.where(name: "Cassiopeia").first_or_create(name: "Cassiopeia", 
+    lane: "Mid", 
+    url: "https://i.imgur.com/YARPPiZ.png")
+
+Champion.where(name: "Diana").first_or_create(name: "Diana", 
+    lane: "Jungle", 
+    url: "https://i.imgur.com/VrnIkmC.png")
+
+Champion.where(name: "Elise").first_or_create(name: "Elise", 
+    lane: "Jungle", 
+    url: "https://i.imgur.com/gYHxhzd.png")
+
+    Champion.where(name: "Garen").first_or_create(name: "Garen", 
+    lane: "Top", 
+    url: "https://i.imgur.com/KGyk0L1.png")
+    
+
+=begin
 
 ChampionOwnership.where(user_id: 1, champion_id: 1).first_or_create(user_id: 1, champion_id: 1)
 ChampionOwnership.where(user_id: 1, champion_id: 2).first_or_create(user_id: 1, champion_id: 2)
@@ -25,4 +43,5 @@ ChampionOwnership.where(user_id: 2, champion_id: 4).first_or_create(user_id: 2, 
 ChampionOwnership.where(user_id: 2, champion_id: 3).first_or_create(user_id: 2, champion_id: 3)
 ChampionOwnership.where(user_id: 3, champion_id: 1).first_or_create(user_id: 3, champion_id: 1)
 
+=end
 
