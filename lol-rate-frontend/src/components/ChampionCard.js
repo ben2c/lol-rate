@@ -33,8 +33,8 @@ class ChampionCard extends Component {
     let buttonsVisible =
       <div>
         {champion.claimed !== "true" ?
-          <div className="claim-button" onClick={() => { claimChampion(champion, championsReducer.currentUser) }}><i className='plus icon plus-class' />I HAD THIS</div> :
-          <div className="unclaim-button" onClick={() => { unclaimChampion(championsReducer.championOwnerships, champion, championsReducer.currentUser) }}><i className="minus icon minus-class" />UNCLAIM THIS</div>
+          <div className="claim-button" onClick={() => { claimChampion(champion, championsReducer.currentUser) }}><i className='plus icon plus-class' />Meta?</div> :
+          <div className="unclaim-button" onClick={() => { unclaimChampion(championsReducer.championOwnerships, champion, championsReducer.currentUser) }}><i className="minus icon minus-class" />Not Meta</div>
         }   </div>
 
 
@@ -48,15 +48,13 @@ class ChampionCard extends Component {
             <Card.Header><strong>{champion.name}</strong></Card.Header>
             <Card.Description>{champion.description}</Card.Description>
 
-
-
-            <div>
+            {/*<div>
               {this.state.liked ?
                 <button className="unlike-button" onClick={this.clickHandler}><i className="red heart icon" />Liked</button> :
                 <button className="like-button" onClick={this.clickHandler}><i className="red heart outline icon" />Like</button>
               }
-            </div>
-
+            </div> */}
+            
 
 
           </Card.Content>

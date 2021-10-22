@@ -7,7 +7,8 @@ h3 {
   font-family: 'Rajdhani', sans-serif;
   font-style: bold;
   font-size: 40px;
-  color: #003688;
+  color: #ffffff
+  ;
 }
 
 .App-logo {
@@ -29,7 +30,7 @@ h3 {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #393939;
 }
 
 .App-link {
@@ -51,6 +52,10 @@ h3 {
 }
 
 div.ui.menu {
-  background-color: #ffffff;
+  background-color: #393939;
   font-size: 16px;
+}
+
+body {
+  background: #393939
 }

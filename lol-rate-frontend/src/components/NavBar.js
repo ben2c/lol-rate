@@ -10,7 +10,7 @@ const NavBar = () => {
     <div className="nav">
       <Menu>
 
-        <a href='/'><img src={Icon} height='60' width='60' /></a>
+        <a href='/'><img src={Icon} height='31' width='131' /></a>
 
         <Link to='/champions' className='champ'>
           View All Champions
