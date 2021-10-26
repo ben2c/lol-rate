@@ -9,7 +9,11 @@
     margin-right: auto;
     width: 100px;
     height: 100px;
-  }
+}
+
+.content {
+  background-color: #393939;
+}
 
 .user-class {
     color: #393939;
@@ -79,4 +83,8 @@
 {
   background-color:#50b6ab;
 
+}
+
+.stats {
+  color: white;
 }

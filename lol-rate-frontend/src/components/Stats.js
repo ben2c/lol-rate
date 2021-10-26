@@ -1,4 +1,5 @@
 import React from 'react';
+import './Champion.css';
 
 const Stats = ( {numChampions, topThree} ) => {
 
@@ -8,8 +9,8 @@ const Stats = ( {numChampions, topThree} ) => {
 
   return (
     <div>
-      <i className='gamepad icon total-class' /><strong>Total champions</strong><p>{numChampions} </p>
-      <i className='hotjar icon hot-class' /><strong>Top champions</strong>
+      <i className='stats' /><strong>Total Champions</strong><p>{numChampions} </p>
+      <i className='stats' className='hotjar icon hot-class' /><strong>Top Champions</strong>
       {items}
 
     </div>

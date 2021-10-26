@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Menu } from 'semantic-ui-react';
+import { Menu, Button } from 'semantic-ui-react';
 import '../App.css';
 import Icon from '../images/icon.png';
+import './NavBar.css';
 
 const NavBar = () => {
 
@@ -10,19 +11,15 @@ const NavBar = () => {
     <div className="nav">
       <Menu>
 
-        <a href='/'><img src={Icon} height='31' width='131' /></a>
+        <a href='/'><img id='icon' src={Icon} height='50' width='51' center top/></a>
+        
+        <ul>
+          <li><Link to='/champions' className='champ'>View All Champions </Link></li>
 
-        <Link to='/champions' className='champ'>
-          View All Champions
-        </Link>
+          <li><Link to='/Like' className='champ'>View My Liked Champions </Link></li>
 
-        <Link to='/Like' className='champ'>
-          View My Liked Champions
-        </Link>
-
-        <Link to='/about' className='champ'>
-          About Us
-        </Link>
+          <li><Link to='/about' className='champ'>About Us </Link></li>
+        </ul>
 
       </Menu>
     </div>

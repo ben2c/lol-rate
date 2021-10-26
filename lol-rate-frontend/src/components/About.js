@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Divider } from 'semantic-ui-react'
+//import { Button } from 'react-bootstrap';
 
+//import 'bootstrap/dist/css/bootstrap.min.css'
 
 const About = () => {
 
@@ -11,6 +13,7 @@ const About = () => {
         <h3>About Us</h3>
       </Container>
     </div>
+    
   )
 
 }

@@ -16,7 +16,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Divider } from 'semantic-ui-react'
 import history from './history';
 
-
 class App extends React.Component {
 
   componentDidMount() {
