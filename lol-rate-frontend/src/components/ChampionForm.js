@@ -27,10 +27,6 @@ class ChampionForm extends Component {
     const { createChampion, championFormData } = this.props;
     createChampion(championFormData);
 
-
-
-
-
   }
 
   render() {

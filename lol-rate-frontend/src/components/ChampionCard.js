@@ -48,13 +48,6 @@ class ChampionCard extends Component {
             <Image className="ChampionImage" src={champion.url} alt={champion.name} />
             <Card.Header><strong>{champion.name}</strong></Card.Header>
             <Card.Description>{champion.lane}</Card.Description>
-
-            {/*<div>
-              {this.state.liked ?
-                <button className="unlike-button" onClick={this.clickHandler}><i className="yellow star icon" />Liked</button> :
-                <button className="like-button" onClick={this.clickHandler}><i className="star outline icon" />Like</button>
-              }
-            </div> */}
             
           </Card.Content>
 

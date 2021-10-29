@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ChampionCard from '../components/ChampionCard';
 import { Card, Divider } from 'semantic-ui-react';
+import './Interface.css';
 
 class Like extends Component {
 

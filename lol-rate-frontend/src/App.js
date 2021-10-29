@@ -34,7 +34,7 @@ class App extends React.Component {
           <div className="App">
             <NavBar />
 
-            <h3>League of Legends Rate</h3>
+            <h3>League of Legends Champion Rate</h3>
 
             {loggedIn ? <Logout /> : <div> <Login /> <Signup /> </div>}
             {loggedIn ? <ChampionForm /> : ""}

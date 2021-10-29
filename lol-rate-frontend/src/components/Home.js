@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="Home">
 
-      <img src={Yasuo} alt="League of Legends" />
+      <img src={Yasuo} alt="League of Legends" width= '35%' height='35%'/>
     </div>
   )
 }
