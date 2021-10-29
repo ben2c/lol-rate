@@ -48,15 +48,15 @@
   font-size: 16px;
 }
 
-.claim-button
+.meta-button
 {
-  background-color:#b4d3aa;
+  background-color:#525252;
 
 }
 
-.unclaim-button
+.unmeta-button
 {
-  background-color:#f1956e;
+  background-color:#525252;
 
 
 }
@@ -85,6 +85,13 @@
 
 }
 
-.stats {
+.stats-container
+{
   color: white;
 }
+
+.ui.form .field>label
+{
+  color: white;
+}
+

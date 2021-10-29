@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateChampionFormData } from '../actions/championForm';
 import { createChampion } from '../actions/champions';
-import { Form, Icon, Divider } from 'semantic-ui-react';
+import { Form, Divider } from 'semantic-ui-react';
+import './Champion.css';
 
 
 
@@ -38,23 +39,23 @@ class ChampionForm extends Component {
       <div>
       <Divider />
         <Form onSubmit={this.handleonSubmit}>
-          <Form.Group widths='equal'>
+          <Form.Group widths='equal' >
             <Form.Input
-              fluid label='Name'
+              label='Name'
               onChange={this.handleOnChange}
               placeholder='Name'
               value={name}
               name='name'
             />
             <Form.Input
-              fluid label='Lane'
+              label='Lane'
               onChange={this.handleOnChange}
               placeholder='Lane'
               value={lane}
               name='lane'
             />
             <Form.Input
-              fluid label='URL'
+              label='URL'
               onChange={this.handleOnChange}
               placeholder='Image URL'
               value={url}

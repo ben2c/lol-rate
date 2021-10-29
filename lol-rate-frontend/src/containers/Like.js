@@ -18,7 +18,7 @@ class Like extends Component {
 
         <Divider hidden />
 
-        <Card.Group itemsPerRow={3}>
+        <Card.Group itemsPerRow={6}>
           {championsReducer.userChampions.map((champion, id) => <ChampionCard numUsers={champion.users.length} claimed={champion.claimed} key={id} champion={champion} />)}
 
         </Card.Group>

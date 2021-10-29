@@ -4,6 +4,7 @@ import ChampionCard from '../components/ChampionCard';
 import { Card } from 'semantic-ui-react';
 import Stats from '../components/Stats';
 import { Divider } from 'semantic-ui-react'
+import './Interface.css';
 
 
 class Champions extends Component {
@@ -24,12 +25,13 @@ class Champions extends Component {
 
     return (
       <div className="Champions">
-        <input placeholder="championName" value={this.state.newSearch} name="championName" type="text" onChange={this.handleInputChange} />
+        <br/>
+        <input placeholder="Search" value={this.state.newSearch} name="championName" type="text" onChange={this.handleInputChange} />
         <Divider />
         <Stats numChampions={championsReducer.champions.length} topThree={topChampions.slice(0, 3)} />
         <Divider />
 
-        <Card.Group itemsPerRow={3}>
+        <Card.Group itemsPerRow={6}>
           {championsMatch.map((champion, id) => <ChampionCard claimed={champion.claimed} numUsers={champion.users.length} key={id} champion={champion} />)}
         </Card.Group>
 

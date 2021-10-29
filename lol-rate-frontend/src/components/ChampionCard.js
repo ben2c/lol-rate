@@ -5,6 +5,7 @@ import { Card, Image } from 'semantic-ui-react';
 import { claimChampion, unclaimChampion } from '../actions/championOwnerships';
 import { connect } from 'react-redux';
 
+
 class ChampionCard extends Component {
 
 
@@ -33,8 +34,8 @@ class ChampionCard extends Component {
     let buttonsVisible =
       <div>
         {champion.claimed !== "true" ?
-          <div className="claim-button" onClick={() => { claimChampion(champion, championsReducer.currentUser) }}><i className='plus icon plus-class' />Meta?</div> :
-          <div className="unclaim-button" onClick={() => { unclaimChampion(championsReducer.championOwnerships, champion, championsReducer.currentUser) }}><i className="minus icon minus-class" />Not Meta</div>
+          <div className="meta-button" onClick={() => { claimChampion(champion, championsReducer.currentUser) }}>Meh<i className='red ban icon' /></div> :
+          <div className="unmeta-button" onClick={() => { unclaimChampion(championsReducer.championOwnerships, champion, championsReducer.currentUser) }}><i className="green check icon" />OP</div>
         }   </div>
 
 
@@ -46,21 +47,19 @@ class ChampionCard extends Component {
           <Card.Content>
             <Image className="ChampionImage" src={champion.url} alt={champion.name} />
             <Card.Header><strong>{champion.name}</strong></Card.Header>
-            <Card.Description>{champion.description}</Card.Description>
+            <Card.Description>{champion.lane}</Card.Description>
 
             {/*<div>
               {this.state.liked ?
-                <button className="unlike-button" onClick={this.clickHandler}><i className="red heart icon" />Liked</button> :
-                <button className="like-button" onClick={this.clickHandler}><i className="red heart outline icon" />Like</button>
+                <button className="unlike-button" onClick={this.clickHandler}><i className="yellow star icon" />Liked</button> :
+                <button className="like-button" onClick={this.clickHandler}><i className="star outline icon" />Like</button>
               }
             </div> */}
             
-
-
           </Card.Content>
 
           <Card.Content extra>
-            <i className='users icon user-class' /> {numUsers !== undefined ? champion.users.length : 0}
+            <i className='grey users icon' /> {numUsers !== undefined ? champion.users.length : 0}
           </Card.Content>
 
 

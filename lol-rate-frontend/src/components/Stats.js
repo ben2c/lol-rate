@@ -8,7 +8,7 @@ const Stats = ( {numChampions, topThree} ) => {
   })
 
   return (
-    <div>
+    <div className='stats-container'>
       <i className='stats' /><strong>Total Champions</strong><p>{numChampions} </p>
       <i className='stats' className='hotjar icon hot-class' /><strong>Top Champions</strong>
       {items}
