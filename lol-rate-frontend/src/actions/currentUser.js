@@ -13,7 +13,7 @@ export const setCurrentUser = (user, champions) => {
 
 export const setMyChampions = (user, champions) => {
   return {
-    type: "GET_USER_TOYS_SUCCESS",
+    type: "GET_USER_CHAMPIONS_SUCCESS",
     user,
     champions
   };
